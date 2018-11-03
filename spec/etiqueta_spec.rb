@@ -43,6 +43,10 @@ RSpec.describe Etiqueta do
       expect(@label.toX(:ir,:hc)).to eq(10.62)
     end
 
+    it "Imprimiendo etiqueta" do
+      puts @label
+    end
+
   end
 
 end

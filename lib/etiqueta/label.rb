@@ -30,4 +30,17 @@ class Label
     ((send(method)*100)/@@ir[method]).round(2)
   end
 
+  def to_s
+    str = String.new
+    str << @nombre << "\n"
+    str << "\t\t\t Por 100g\t IR (100g)\t Por #{@porcion}g\t IR(#{@porcion}g)\n"
+    str << "Valor energético\t #{kj}kJ/#{kcal}kcal\t #{ir(:kcal)}%\t #{toX(:kj)}kJ/#{toX(:kcal)}kcal\t #{toX(:ir,:kcal)}%\n"
+    str <<"Grasas\t\t\t #{@grasas}g\t\t #{ir(:grasas)}%\t\t  #{toX(:grasas)}g\t\t  #{toX(:ir,:grasas)}%\n"
+    str <<"  saturadas:\t\t #{@grasass}g\t\t #{ir(:grasass)}%\t\t  #{toX(:grasass)}g\t\t  #{toX(:ir,:grasass)}%\n"
+    str <<"Hidratos de carbono\t #{@hc}g\t\t #{ir(:hc)}%\t\t  #{toX(:hc)}g\t\t  #{toX(:ir,:hc)}%\n"
+    str <<"  azúcares:\t\t #{@azucar}g\t\t #{ir(:azucar)}%\t\t  #{toX(:azucar)}g\t\t  #{toX(:ir,:azucar)}%\n"
+    str <<"Proteínas\t\t #{@protei}g\t\t #{ir(:protei)}%\t\t  #{toX(:protei)}g\t\t  #{toX(:ir,:protei)}%\n"
+    str <<"Sal\t\t\t #{@sal}g\t\t #{ir(:sal)}%\t\t  #{toX(:sal)}g\t\t  #{toX(:ir,:sal)}%\n"
+  end
+
 end
