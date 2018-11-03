@@ -38,6 +38,11 @@ RSpec.describe Etiqueta do
       expect(@label.ir(:hc)).to eq(26.54)
     end
 
+    it "Ingesta de referencia por porción" do
+      expect(@label.toX(:ir,:kcal)).to eq(9.63)
+      expect(@label.toX(:ir,:hc)).to eq(10.62)
+    end
+
   end
 
 end

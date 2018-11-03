@@ -18,8 +18,12 @@ class Label
     grasas * 9 + hc * 4 + protei * 4 + sal * 6
   end
 
-  def toX(method)
-    ((send(method)*@porcion)/100).round(2)
+  def toX(method, arg = nil)
+    if arg == nil
+      ((send(method)*@porcion)/100).round(2)
+    else
+      ((send(method, arg)*@porcion)/100).round(2)
+    end
   end
 
   def ir(method)
