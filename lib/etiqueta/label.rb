@@ -15,4 +15,8 @@ class Label
     grasas * 9 + hc * 4 + protei * 4 + sal * 6
   end
 
+  def toX(method)
+    (send(method)*@porcion)/100
+  end
+
 end

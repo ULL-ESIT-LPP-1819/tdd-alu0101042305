@@ -28,6 +28,11 @@ RSpec.describe Etiqueta do
       expect(@label.kcal).to eq(481.4)
     end
 
+    it "Valores por porción" do
+      expect(@label.toX(:grasas)).to eq(8)
+      expect(@label.toX(:kj)).to eq(808.2)
+    end
+
   end
 
 end
