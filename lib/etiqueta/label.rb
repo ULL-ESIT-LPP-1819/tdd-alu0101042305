@@ -2,6 +2,9 @@ class Label
 
   attr_reader :nombre, :porcion, :grasas, :grasass, :hc, :azucar, :protei, :sal
 
+  @@ir = {:kj => 8400, :kcal => 2000, :grasas => 70, :grasass => 20,
+     :hc => 260, :azucar => 90, :protei => 50, :sal => 6}
+
   def initialize(nombre, porcion, grasas, grasass, hc, azucar, protei, sal)
     @nombre, @porcion, @grasas, @grasass, @hc, @azucar, @protei, @sal =
     nombre, porcion, grasas, grasass, hc, azucar, protei, sal
@@ -16,7 +19,11 @@ class Label
   end
 
   def toX(method)
-    (send(method)*@porcion)/100
+    ((send(method)*@porcion)/100).round(2)
+  end
+
+  def ir(method)
+    ((send(method)*100)/@@ir[method]).round(2)
   end
 
 end

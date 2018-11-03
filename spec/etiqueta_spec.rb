@@ -33,6 +33,11 @@ RSpec.describe Etiqueta do
       expect(@label.toX(:kj)).to eq(808.2)
     end
 
+    it "Ingesta de referencia por 100 g" do
+      expect(@label.ir(:kcal)).to eq(24.07)
+      expect(@label.ir(:hc)).to eq(26.54)
+    end
+
   end
 
 end
