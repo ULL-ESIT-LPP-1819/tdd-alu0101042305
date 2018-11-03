@@ -23,6 +23,11 @@ RSpec.describe Etiqueta do
       expect(@label.sal).to eq(@SAL)
     end
 
+    it "Valor energético por 100g" do
+      expect(@label.kj).to eq(2020.5)
+      expect(@label.kcal).to eq(481.4)
+    end
+
   end
 
 end
