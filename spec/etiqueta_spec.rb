@@ -4,4 +4,7 @@ RSpec.describe Etiqueta do
     expect(Etiqueta::VERSION).not_to be nil
   end
 
+  describe Label do
+  end
+
 end

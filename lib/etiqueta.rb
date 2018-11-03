@@ -1,5 +1,5 @@
 require "etiqueta/version"
-require "etiqueta/etiqueta"
+require "etiqueta/label"
 
 module Etiqueta
   class Error < StandardError; end
