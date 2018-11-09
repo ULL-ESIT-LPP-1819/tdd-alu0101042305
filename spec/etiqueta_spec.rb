@@ -4,6 +4,10 @@ RSpec.describe Etiqueta do
     expect(Etiqueta::VERSION).not_to be nil
   end
 
+  describe List do
+
+  end
+
   describe Label do
 
     before :each do
@@ -44,7 +48,7 @@ RSpec.describe Etiqueta do
     end
 
     it "Imprimiendo etiqueta" do
-      puts @label
+      expect(@label.to_s.class).to eq(String)
     end
 
   end
