@@ -20,6 +20,14 @@ RSpec.describe Etiqueta do
       expect(@list.to_a).to eq([@label1, @label2, @label3, @label4, @label5])
     end
 
+    it "Método each" do
+      array = []
+      @list.each do |label|
+        array << label.sal
+      end
+      expect(array).to eq([@label1.sal, @label2.sal, @label3.sal, @label4.sal, @label5.sal])
+    end
+
   end
 
   describe Label do
