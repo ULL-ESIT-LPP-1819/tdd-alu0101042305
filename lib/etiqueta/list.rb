@@ -16,12 +16,18 @@ class List
     self
   end
 
-  def to_a
-    array = []
+  def each
     node = @head
     while(node != nil)
-      array << node.value
+      yield node.value
       node = node.next
+    end
+  end
+
+  def to_a
+    array = []
+    self.each do |val|
+      array << val
     end
     array
   end
