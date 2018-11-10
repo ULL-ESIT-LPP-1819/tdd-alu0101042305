@@ -24,6 +24,14 @@ class List
     end
   end
 
+  def reverse_each
+    node = @tail
+    while(node != nil)
+      yield node.value
+      node = node.prev
+    end
+  end
+  
   def to_a
     array = []
     self.each do |val|
