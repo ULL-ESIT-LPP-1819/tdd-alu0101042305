@@ -1,5 +1,7 @@
 class Label
 
+  include Comparable
+
   attr_reader :nombre, :porcion, :grasas, :grasass, :hc, :azucar, :protei, :sal
 
   @@ir = {:kj => 8400, :kcal => 2000, :grasas => 70, :grasass => 20,
@@ -29,6 +31,12 @@ class Label
   def ir(method)
     ((send(method)*100)/@@ir[method]).round(2)
   end
+
+  def <=>(label)
+    return -1 if self.sal < label.sal
+    return 1 if self.sal > label.sal
+    return self.name <=> label.name
+  end 
 
   def to_s
     str = String.new

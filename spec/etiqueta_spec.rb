@@ -64,8 +64,8 @@ RSpec.describe Etiqueta do
     end
 
     it "Método sort" do
-      ordered_list = @list.sort
-      expect(ordered_list.to_a).to eq([@label2,@label4,@label1,@label3,@label5])
+      ordered_array = @list.sort
+      expect(ordered_array).to eq([@label5 ,@label3 ,@label1 ,@label4 ,@label2])
     end
 
   end
