@@ -7,12 +7,15 @@ RSpec.describe Etiqueta do
   describe List do
 
     before :all do
-      @list = List.new
       @label1 = Label.new('OREO',    40.0,     20.0,     9.8,  69.0,  38.0,    5.0,   0.9)
       @label2 = Label.new('Lays',    30.0,     35.1,     4.6,  47.7,  0.6,     6.3,   1.3)
       @label3 = Label.new('Mikado',  25.0,     19.0,     12.0, 68.0,  35.0,    6.8,   0.81)
       @label4 = Label.new('Chip ahoy',    23.0,     26.0,     14.0,  61.0,  37.0,    4.5,   1.05)
       @label5 = Label.new('Nestea',    330.0,     0.0,     0.0,  7.7,  7.7,    0.0,   0.04)
+    end
+
+    before :each do
+      @list = List.new
       @list << @label1 << @label2 << @label3 << @label4 << @label5
     end
 
@@ -34,6 +37,11 @@ RSpec.describe Etiqueta do
         array << label
       end
       expect(array).to eq([@label5, @label4, @label3, @label2, @label1])
+    end
+
+    it "Método unshift" do
+      @list.unshift @label5
+      expect(@list.to_a).to eq([@label5, @label1, @label2, @label3, @label4, @label5])
     end
 
   end
