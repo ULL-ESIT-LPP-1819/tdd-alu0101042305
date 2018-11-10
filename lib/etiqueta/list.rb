@@ -3,6 +3,8 @@ Node = Struct.new(:value, :next, :prev)
 
 class List
 
+include Enumerable
+
   def <<(val)
     node = Node.new(val)
     if(@head == nil)
@@ -81,14 +83,6 @@ class List
       yield node.value
       node = node.prev
     end
-  end
-
-  def to_a
-    array = []
-    self.each do |val|
-      array << val
-    end
-    array
   end
 
 end
