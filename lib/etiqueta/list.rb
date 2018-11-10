@@ -16,6 +16,18 @@ class List
     self
   end
 
+  def unshift(val)
+    node = Node.new(val)
+    if(@head == nil)
+      @head == node
+      @tail == node
+    else
+      node.next = @head
+      @head.prev = node
+      @head = node
+    end
+  end
+
   def each
     node = @head
     while(node != nil)
@@ -31,7 +43,7 @@ class List
       node = node.prev
     end
   end
-  
+
   def to_a
     array = []
     self.each do |val|

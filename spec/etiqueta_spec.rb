@@ -41,7 +41,8 @@ RSpec.describe Etiqueta do
 
     it "Método unshift" do
       @list.unshift @label5
-      expect(@list.to_a).to eq([@label5, @label1, @label2, @label3, @label4, @label5])
+      @list.unshift @label5
+      expect(@list.to_a).to eq([@label5, @label5, @label1, @label2, @label3, @label4, @label5])
     end
 
   end
