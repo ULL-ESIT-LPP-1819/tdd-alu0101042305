@@ -60,6 +60,13 @@ class List
     end
   end
 
+  def shift(n = 1)
+    n.times do
+      @head = @head.next
+      @head.prev = nil
+    end
+  end
+
   def each
     node = @head
     while(node != nil)
