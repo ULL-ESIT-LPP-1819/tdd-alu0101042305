@@ -53,6 +53,13 @@ class List
     end
   end
 
+  def pop(n = 1)
+    n.times do
+      @tail = @tail.prev
+      @tail.next = nil
+    end
+  end
+
   def each
     node = @head
     while(node != nil)
