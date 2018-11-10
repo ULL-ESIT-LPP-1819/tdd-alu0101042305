@@ -52,6 +52,11 @@ RSpec.describe Etiqueta do
       expect(@list.to_a).to eq([@label1,@label2,@label3,@label1, @label2, @label3, @label4, @label5, @label5])
     end
 
+    it "Método pop" do
+      @list.pop 2
+      expect(@list.to_a).to eq([@label1, @label2, @label3])
+    end
+
   end
 
   describe Label do
