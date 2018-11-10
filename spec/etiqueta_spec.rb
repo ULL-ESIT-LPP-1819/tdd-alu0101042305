@@ -41,13 +41,15 @@ RSpec.describe Etiqueta do
 
     it "Método unshift" do
       @list.unshift @label5
-      @list.unshift @label5
-      expect(@list.to_a).to eq([@label5, @label5, @label1, @label2, @label3, @label4, @label5])
+      @list.unshift @label4
+      expect(@list.to_a).to eq([@label4, @label5, @label1, @label2, @label3, @label4, @label5])
     end
 
     it "Método insert" do
-      @list.insert(2,@label1,@label5)
-      expect(@list.to_a).to eq([@label1, @label2, @label1,@label5, @label3, @label4, @label5])
+      @list.insert(5,@label5)
+      @list.insert(0,@label1,@label2)
+      @list.insert(2,@label3)
+      expect(@list.to_a).to eq([@label1,@label2,@label3,@label1, @label2, @label3, @label4, @label5, @label5])
     end
 
   end
