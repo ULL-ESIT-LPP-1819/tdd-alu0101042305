@@ -57,6 +57,11 @@ RSpec.describe Etiqueta do
       expect(@list.to_a).to eq([@label1, @label2, @label3])
     end
 
+    it "Método shift" do
+      @list.shift 3
+      expect(@list.to_a).to eq([@label4, @label5])
+    end
+
   end
 
   describe Label do
