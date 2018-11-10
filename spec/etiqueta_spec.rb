@@ -23,9 +23,17 @@ RSpec.describe Etiqueta do
     it "Método each" do
       array = []
       @list.each do |label|
-        array << label.sal
+        array << label
       end
-      expect(array).to eq([@label1.sal, @label2.sal, @label3.sal, @label4.sal, @label5.sal])
+      expect(array).to eq([@label1, @label2, @label3, @label4, @label5])
+    end
+
+    it "Método reverse_each" do
+      array = []
+      @list.reverse_each do |label|
+        array << label
+      end
+      expect(array).to eq([@label5, @label4, @label3, @label2, @label1])
     end
 
   end
