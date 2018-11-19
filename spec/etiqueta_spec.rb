@@ -9,7 +9,7 @@ RSpec.describe Etiqueta do
     before :all do
       @persona1 = Persona.new('Ana','Mujer')
       @persona2 = Paciente.new('Marta','Mujer','Hospital de Guadalupe')
-      @persona3 = PacienteM.new('Juan','Hombre','Hospital de los dolores',67.0,1.72,28,70.0,80.0)
+      @persona3 = PacienteM.new('Juan','Hombre','Hospital de los Dolores',67.0,1.72,28,70.0,80.0)
       @persona4 = PacienteM.new('Maria','Mujer','Hospital de la Candelaria',45.0,1.39,12,40.0,47.0)
       @persona5 = PacienteM.new('Carlos','Hombre','Hospital del Carmen',70.0,1.69,45,80.0,81.0)
       @list = List.new << @persona1 << @persona2 << @persona3 << @persona4 << @persona5
@@ -32,6 +32,12 @@ RSpec.describe Etiqueta do
     it 'Ordenando por masa corporal' do
       orderedArray = @list.sort
       expect(orderedArray).to eq([@persona3,@persona4,@persona5,@persona1,@persona2])
+    end
+
+    it 'Método to_s' do
+      expect(@persona1.to_s).to eq('Ana es una mujer')
+      expect(@persona2.to_s).to eq('Juan es un hombre con consulta en Hospital de los Dolores')
+      expect(@persona5.to_s).to eq('Carlos es un hombre con consulta en Hospital del Carmen')
     end
 
   end
