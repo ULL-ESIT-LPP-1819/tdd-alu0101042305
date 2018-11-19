@@ -4,6 +4,38 @@ RSpec.describe Etiqueta do
     expect(Etiqueta::VERSION).not_to be nil
   end
 
+  describe PacienteM do
+
+    before :all do
+      @persona1 = Persona.new('Pepe','Hombre')
+      @persona2 = Paciente.new('Marta','Mujer','Hospital de Guadalupe')
+      @persona3 = PacienteM.new('Juan','Hombre','Hospital de los dolores',67.0,172.0,28,70.0,80.0)
+      @persona4 = PacienteM.new('Maria','Mujer','Hospital de la Candelaria',45.0,139.0,12,40.0,47.0)
+      @persona5 = PacienteM.new('Carlos','Hombre','Hospital del Carmen',70.0,169.0,45,80.0,81.0)
+      @list = List.new << @persona1 << @persona2 << @persona3 << @persona4 << @persona5
+    end
+
+    it 'Comprobando clases' do
+      expect(@persona1.class).to eq(Persona)
+      expect(@persona2.class).to eq(Paciente)
+      expect(@persona3.class).to eq(PacienteM)
+      expect(@persona4.class).to eq(PacienteM)
+      expect(@persona5.class).to eq(PacienteM)
+    end
+
+    it 'Comprobando jerarquía' do
+      @list.each do |persona|
+        expect(persona.is_a?Persona).to eq(true)
+      end
+    end
+
+    it 'Ordenando por masa corporal' do
+      orderedArray = @list.sort
+      expect(orderedArray).to eq([])
+    end
+
+  end
+
   describe List do
 
     before :all do
