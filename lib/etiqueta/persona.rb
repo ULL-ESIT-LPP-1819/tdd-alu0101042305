@@ -19,6 +19,10 @@ class Persona
     end
   end
 
+  def to_s
+    "#{@nombre} es un#{@sexo == 'mujer' ? 'a' : nil} #{@sexo}"
+  end
+
 end
 
 class Paciente < Persona
@@ -28,6 +32,10 @@ class Paciente < Persona
   def initialize(nombre,sexo,consulta)
     super(nombre,sexo)
     @consulta = consulta
+  end
+
+  def to_s
+    super.to_s + " con consulta en #{@consulta}"
   end
 
 end
@@ -43,6 +51,10 @@ class PacienteM < Paciente
 
   def imc
     @peso/(@talla * @talla)
+  end
+
+  def to_s
+    super.to_s + " y en tratamiento"
   end
 
 end
