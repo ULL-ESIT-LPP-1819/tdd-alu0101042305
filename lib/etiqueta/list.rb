@@ -57,16 +57,26 @@ include Enumerable
 
   def pop(n = 1)
     n.times do
-      @tail = @tail.prev
-      @tail.next = nil
+      if(@tail != nil)
+        @tail = @tail.prev
+        @tail.next = nil
+      end
     end
+    @head = nil if @tail == nil
   end
 
   def shift(n = 1)
     n.times do
-      @head = @head.next
-      @head.prev = nil
+      if @head != nil
+        @head = @head.next
+        @head.prev = nil
+      end
     end
+    @tail = nil if @head == nil
+  end
+
+  def empty?
+    @head == nil
   end
 
   def each
