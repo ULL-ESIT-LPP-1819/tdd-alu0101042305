@@ -10,13 +10,8 @@ class Persona
 
   def <=> other
     raise TypeError, "Se esperaba un objeto Persona" unless other.is_a?Persona
-    if self.is_a?PacienteM
-      return self.imc <=> other.imc if other.is_a?PacienteM
-      return -1
-    else
-      return 1 if other.is_a?PacienteM
-      return @nombre <=> other.nombre
-    end
+    return 1 if other.is_a?PacienteM
+    return @nombre <=> other.nombre
   end
 
   def to_s
@@ -55,6 +50,12 @@ class PacienteM < Paciente
 
   def to_s
     super.to_s + " y en tratamiento"
+  end
+
+  def <=> other
+    raise TypeError, "Se esperaba un objeto Persona" unless other.is_a?Persona
+    return self.imc <=> other.imc if other.is_a?PacienteM
+    return -1
   end
 
 end
