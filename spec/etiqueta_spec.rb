@@ -4,6 +4,20 @@ RSpec.describe Etiqueta do
     expect(Etiqueta::VERSION).not_to be nil
   end
 
+  describe Comparable do
+
+    before :all do
+      @persona1 = PacienteM.new('Maria','mujer','Hospital de la Candelaria',45.0,1.39,12,40.0,47.0)
+      @persona2 = PacienteM.new('Carlos','hombre','Hospital del Carmen',70.0,1.69,45,80.0,81.0)
+    end
+
+    it 'Operador ==' do
+      expect(@persona1 == @persona2).to eq(false);
+      expect(@persona1 == @persona1).to eq(true);
+    end
+
+  end
+
   describe PacienteM do
 
     before :all do
