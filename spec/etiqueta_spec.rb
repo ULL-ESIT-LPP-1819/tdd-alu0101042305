@@ -4,6 +4,34 @@ RSpec.describe Etiqueta do
     expect(Etiqueta::VERSION).not_to be nil
   end
 
+  describe Enumerable do
+
+    before :all do
+      @persona1 = Persona.new('Ana','mujer')
+      @persona2 = Paciente.new('Marta','mujer','Hospital de Guadalupe')
+      @persona3 = PacienteM.new('Juan','hombre','Hospital de los Dolores',67.0,1.72,28,70.0,80.0)
+      @persona4 = PacienteM.new('Maria','mujer','Hospital de la Candelaria',45.0,1.39,12,40.0,47.0)
+      @persona5 = PacienteM.new('Carlos','hombre','Hospital del Carmen',70.0,1.69,45,80.0,81.0)
+      @list1 = List.new << @persona1 << @persona2 << @persona3 << @persona4 << @persona5
+
+      @label1 = Label.new('OREO',    40.0,     20.0,     9.8,  69.0,  38.0,    5.0,   0.9)
+      @label2 = Label.new('Lays',    30.0,     35.1,     4.6,  47.7,  0.6,     6.3,   1.3)
+      @label3 = Label.new('Mikado',  25.0,     19.0,     12.0, 68.0,  35.0,    6.8,   0.81)
+      @label4 = Label.new('Chip ahoy',    23.0,     26.0,     14.0,  61.0,  37.0,    4.5,   1.05)
+      @label5 = Label.new('Nestea',    330.0,     0.0,     0.0,  7.7,  7.7,    0.0,   0.04)
+      @list2 = List.new << @label1 << @label2 << @label3 << @label4 << @label5
+    end
+
+    it 'Método collect' do
+      array_sal = @list2.collect {|label| label.sal}
+      expect(array_sal).to eq([0.9, 1.3, 0.81, 1.05, 0.04])
+
+      array_nombres = @list1.collect {|persona| persona.nombre}
+      expect(array_nombres).to eq(['Ana', 'Marta', 'Juan', 'Maria', 'Carlos'])
+    end
+
+  end
+
   describe Comparable do
 
     before :all do
