@@ -22,8 +22,14 @@ RSpec.describe Etiqueta do
     end
 
     it 'Operador <' do
-      expect(@persona1 < @persona2).to eq(!(@persona2 < @persona1))
+      expect(@persona1 < @persona2).to eq(true)
+      expect(@persona2 < @persona1).to eq(false)
       expect(@persona1 < @persona1).to eq(false)
+    end
+
+    it 'Operador <=' do
+      expect(@persona1 <= @persona1).to eq(true)
+      expect(@persona1 <= @persona2).to eq(true)
     end
 
   end
