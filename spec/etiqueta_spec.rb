@@ -38,6 +38,11 @@ RSpec.describe Etiqueta do
       expect(array_sal).to eq([@label2, @label4])
     end
 
+    it 'Método max' do
+      expect(@list1.max).to eq(@persona2)
+      expect(@list2.max).to eq(@label2)
+    end
+
   end
 
   describe Comparable do
