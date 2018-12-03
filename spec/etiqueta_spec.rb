@@ -32,6 +32,11 @@ RSpec.describe Etiqueta do
       expect(@persona1 <= @persona2).to eq(true)
     end
 
+    it 'Operador >' do
+      expect(@persona1 > @persona1).to eq(false)
+      expect(@persona2 > @persona1).to eq(true)
+    end
+
     it 'Operador >=' do
       expect(@persona1 >= @persona1).to eq(true)
       expect(@persona1 >= @persona2).to eq(false)
