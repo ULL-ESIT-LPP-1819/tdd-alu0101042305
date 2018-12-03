@@ -9,37 +9,58 @@ RSpec.describe Etiqueta do
     before :all do
       @persona1 = PacienteM.new('Maria','mujer','Hospital de la Candelaria',45.0,1.39,12,40.0,47.0)
       @persona2 = PacienteM.new('Carlos','hombre','Hospital del Carmen',70.0,1.69,45,80.0,81.0)
+      @label1 = Label.new('OREO',    40.0,     20.0,     9.8,  69.0,  38.0,    5.0,   0.9)
+      @label2 = Label.new('Lays',    30.0,     35.1,     4.6,  47.7,  0.6,     6.3,   1.3)
     end
 
     it 'Operador ==' do
       expect(@persona1 == @persona2).to eq(false)
       expect(@persona1 == @persona1).to eq(true)
+
+      expect(@label1 == @label2).to eq(false)
+      expect(@label1 == @label1).to eq(true)
     end
 
     it 'Operador !=' do
       expect(@persona1 != @persona2).to eq(true)
       expect(@persona2 != @persona2).to eq(false)
+
+      expect(@label1 != @label2).to eq(true)
+      expect(@label2 != @label2).to eq(false)
     end
 
     it 'Operador <' do
       expect(@persona1 < @persona2).to eq(true)
       expect(@persona2 < @persona1).to eq(false)
       expect(@persona1 < @persona1).to eq(false)
+
+      expect(@label1 < @label2).to eq(true)
+      expect(@label2 < @label1).to eq(false)
+      expect(@label1 < @label1).to eq(false)
     end
 
     it 'Operador <=' do
       expect(@persona1 <= @persona1).to eq(true)
       expect(@persona1 <= @persona2).to eq(true)
+
+      expect(@label1 <= @label1).to eq(true)
+      expect(@label1 <= @label2).to eq(true)
     end
 
     it 'Operador >' do
       expect(@persona1 > @persona1).to eq(false)
       expect(@persona2 > @persona1).to eq(true)
+
+      expect(@label1 > @label1).to eq(false)
+      expect(@label2 > @label1).to eq(true)
     end
 
     it 'Operador >=' do
       expect(@persona1 >= @persona1).to eq(true)
       expect(@persona1 >= @persona2).to eq(false)
+
+      expect(@label1 >= @label1).to eq(true)
+      expect(@label1 >= @label2).to eq(false)
     end
 
   end

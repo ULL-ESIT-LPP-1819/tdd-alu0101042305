@@ -35,8 +35,8 @@ class Label
   def <=>(label)
     return -1 if self.sal < label.sal
     return 1 if self.sal > label.sal
-    return self.name <=> label.name
-  end 
+    return self.nombre <=> label.nombre
+  end
 
   def to_s
     str = String.new
