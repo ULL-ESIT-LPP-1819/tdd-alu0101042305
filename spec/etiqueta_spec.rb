@@ -30,6 +30,14 @@ RSpec.describe Etiqueta do
       expect(array_nombres).to eq(['Ana', 'Marta', 'Juan', 'Maria', 'Carlos'])
     end
 
+    it 'Método select' do
+      array_pacientesM = @list1.select {|persona| persona.instance_of?PacienteM}
+      expect(array_pacientesM).to eq([@persona3, @persona4, @persona5])
+
+      array_sal = @list2.select {|label| label.sal > 1}
+      expect(array_sal).to eq([@label2, @label4])
+    end
+
   end
 
   describe Comparable do
