@@ -48,6 +48,11 @@ RSpec.describe Etiqueta do
       expect(@list2.min).to eq(@label5)
     end
 
+    it "Método sort" do
+      expect(@list1.sort).to eq([@persona3,@persona4,@persona5,@persona1,@persona2])
+      expect(@list2.sort).to eq([@label5 ,@label3 ,@label1 ,@label4 ,@label2])
+    end
+
   end
 
   describe Comparable do
