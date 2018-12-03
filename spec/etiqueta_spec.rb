@@ -43,6 +43,11 @@ RSpec.describe Etiqueta do
       expect(@list2.max).to eq(@label2)
     end
 
+    it 'Método min' do
+      expect(@list1.min).to eq(@persona3)
+      expect(@list2.min).to eq(@label5)
+    end
+
   end
 
   describe Comparable do
