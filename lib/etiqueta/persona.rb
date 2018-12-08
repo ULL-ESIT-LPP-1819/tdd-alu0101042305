@@ -48,6 +48,10 @@ class PacienteM < Paciente
     @menu = labels
   end
 
+  def pesoIdeal
+    (talla*100 - 150) * 0.75 + 50
+  end
+
   def imc
     @peso/(@talla * @talla)
   end
