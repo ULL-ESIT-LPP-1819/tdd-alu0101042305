@@ -40,6 +40,14 @@ RSpec.describe Etiqueta do
       expect(@persona5.basal).to eq(490.56)
     end
 
+    it 'Efecto termógeno' do
+      expect(@persona1.termogeno).to eq(34.29)
+      expect(@persona2.termogeno).to eq(35.97)
+      expect(@persona3.termogeno).to eq(54.58)
+      expect(@persona4.termogeno).to eq(23.77)
+      expect(@persona5.termogeno).to eq(49.06)
+    end
+
   end
 
   describe Enumerable do
