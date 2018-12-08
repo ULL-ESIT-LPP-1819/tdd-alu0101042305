@@ -17,11 +17,19 @@ RSpec.describe Etiqueta do
       @ensalada = Label.new('Ensalada',    40.0,     20.0,     9.8,  69.0,  38.0,    5.0,   0.9)
       @carne = Label.new('Carne',    30.0,     35.1,     4.6,  47.7,  0.6,     6.3,   1.3)
 
-      @persona1.addMenu(@ensalada,@ensalada,@ensalada)
+      @persona1.addMenu(@ensalada,@ensalada,@ensalada,@ensalada)
       @persona2.addMenu(@ensalada,@ensalada,@carne)
-      @persona3.addMenu(@ensalada,@carne,@carne)
+      @persona3.addMenu(@ensalada,@ensalada)
       @persona4.addMenu(@carne,@carne,@carne)
-      @persona5.addMenu(@ensalada,@ensalada,@carne)
+      @persona5.addMenu(@ensalada,@ensalada,@carne,@carne,@carne)
+    end
+
+    it 'Comprobando menus' do
+      expect(@persona1.menuOk?).to eq(true)
+      expect(@persona2.menuOk?).to eq(true)
+      expect(@persona3.menuOk?).to eq(false)
+      expect(@persona4.menuOk?).to eq(false)
+      expect(@persona5.menuOk?).to eq(true)
     end
 
     it 'Peso ideal' do

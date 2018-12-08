@@ -50,6 +50,14 @@ class PacienteM < Paciente
     @menu = labels
   end
 
+  def menuOk?
+    ((total * 0.9)..(total * 1.1)).include? menuKcal
+  end
+
+  def menuKcal
+    @menu.map {|label| label.kcal}.reduce(:+)
+  end
+
   def pesoIdeal
     (talla * 100 - 150) * 0.75 + 50
   end
