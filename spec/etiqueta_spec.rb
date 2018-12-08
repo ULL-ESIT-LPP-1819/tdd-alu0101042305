@@ -33,27 +33,35 @@ RSpec.describe Etiqueta do
     end
 
     it 'Gasto energético basal' do
-      expect(@persona1.basal).to eq(342.94)
-      expect(@persona2.basal).to eq(359.69)
-      expect(@persona3.basal).to eq(545.75)
-      expect(@persona4.basal).to eq(237.69)
-      expect(@persona5.basal).to eq(490.56)
+      expect(@persona1.basal).to eq(1425.75)
+      expect(@persona2.basal).to eq(1417.75)
+      expect(@persona3.basal).to eq(1610.0)
+      expect(@persona4.basal).to eq(1097.75)
+      expect(@persona5.basal).to eq(1536.25)
     end
 
     it 'Efecto termógeno' do
-      expect(@persona1.termogeno).to eq(34.29)
-      expect(@persona2.termogeno).to eq(35.97)
-      expect(@persona3.termogeno).to eq(54.58)
-      expect(@persona4.termogeno).to eq(23.77)
-      expect(@persona5.termogeno).to eq(49.06)
+      expect(@persona1.termogeno).to eq(142.58)
+      expect(@persona2.termogeno).to eq(141.78)
+      expect(@persona3.termogeno).to eq(161.0)
+      expect(@persona4.termogeno).to eq(109.78)
+      expect(@persona5.termogeno).to eq(153.63)
     end
 
     it 'Gasto de actividad física' do
-      expect(@persona1.actividad).to eq(92.59)
+      expect(@persona1.actividad).to eq(384.95)
       expect(@persona2.actividad).to eq(0)
-      expect(@persona3.actividad).to eq(65.49)
-      expect(@persona4.actividad).to eq(28.52)
-      expect(@persona5.actividad).to eq(264.9)
+      expect(@persona3.actividad).to eq(193.2)
+      expect(@persona4.actividad).to eq(131.73)
+      expect(@persona5.actividad).to eq(829.58)
+    end
+
+    it 'Gasto energético total' do
+      expect(@persona1.total).to eq(1953.28)
+      expect(@persona2.total).to eq(1559.53)
+      expect(@persona3.total).to eq(1964.2)
+      expect(@persona4.total).to eq(1339.26)
+      expect(@persona5.total).to eq(2519.46)
     end
 
   end

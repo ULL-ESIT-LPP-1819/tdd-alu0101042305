@@ -55,7 +55,7 @@ class PacienteM < Paciente
   end
 
   def basal
-    (10 * peso + 6.25 * talla - 5 * edad + (sexo == 'mujer'? -161 : 5)).round(2)
+    (10 * peso + 6.25 * talla * 100 - 5 * edad + (sexo == 'mujer'? -161 : 5)).round(2)
   end
 
   def termogeno
@@ -64,6 +64,10 @@ class PacienteM < Paciente
 
   def actividad
     (basal * @@factorAct[@act]).round(2)
+  end
+
+  def total
+    basal + termogeno + actividad
   end
 
   def imc
