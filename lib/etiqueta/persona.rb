@@ -39,9 +39,11 @@ class PacienteM < Paciente
 
   attr_reader :peso,:talla,:edad,:cintura,:cadera
 
-  def initialize(nombre,sexo,consulta,peso,talla,edad,cintura,cadera)
+  @@factorAct = {'ninguna' => 0, 'ligera' => 0.12, 'moderada' => 0.27, 'intensa' => 0.54}
+
+  def initialize(nombre,sexo,consulta,peso,talla,edad,cintura,cadera,act = 'ninguna')
     super(nombre,sexo,consulta)
-    @peso,@talla,@edad,@cintura,@cadera = peso,talla,edad,cintura,cadera
+    @peso,@talla,@edad,@cintura,@cadera,@act = peso,talla,edad,cintura,cadera,act
   end
 
   def addMenu(*labels)
@@ -58,6 +60,10 @@ class PacienteM < Paciente
 
   def termogeno
     (basal * 0.1).round(2)
+  end
+
+  def actividad
+    (basal * @@factorAct[@act]).round(2)
   end
 
   def imc

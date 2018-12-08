@@ -7,11 +7,11 @@ RSpec.describe Etiqueta do
   describe 'Menú dietético' do
 
     before :all do
-      @persona1 = PacienteM.new('Ana','mujer','Hospital de Guadalupe',65.3,1.75,32,67.0,70.0)
-      @persona2 = PacienteM.new('Marta','mujer','Hospital de Guadalupe',83.0,1.71,64,80.0,90.0)
-      @persona3 = PacienteM.new('Juan','hombre','Hospital de los Dolores',67.0,1.72,28,70.0,80.0)
-      @persona4 = PacienteM.new('Maria','mujer','Hospital de la Candelaria',45.0,1.39,12,40.0,47.0)
-      @persona5 = PacienteM.new('Carlos','hombre','Hospital del Carmen',70.0,1.69,45,80.0,81.0)
+      @persona1 = PacienteM.new('Ana','mujer','Hospital de Guadalupe',65.3,1.75,32,67.0,70.0,'moderada')
+      @persona2 = PacienteM.new('Marta','mujer','Hospital de Guadalupe',83.0,1.71,64,80.0,90.0,'ninguna')
+      @persona3 = PacienteM.new('Juan','hombre','Hospital de los Dolores',67.0,1.72,28,70.0,80.0,'ligera')
+      @persona4 = PacienteM.new('Maria','mujer','Hospital de la Candelaria',45.0,1.39,12,40.0,47.0,'ligera')
+      @persona5 = PacienteM.new('Carlos','hombre','Hospital del Carmen',70.0,1.69,45,80.0,81.0,'intensa')
       @list1 = List.new << @persona1 << @persona2 << @persona3 << @persona4 << @persona5
 
       @ensalada = Label.new('Ensalada',    40.0,     20.0,     9.8,  69.0,  38.0,    5.0,   0.9)
@@ -46,6 +46,14 @@ RSpec.describe Etiqueta do
       expect(@persona3.termogeno).to eq(54.58)
       expect(@persona4.termogeno).to eq(23.77)
       expect(@persona5.termogeno).to eq(49.06)
+    end
+
+    it 'Gasto de actividad física' do
+      expect(@persona1.actividad).to eq(92.59)
+      expect(@persona2.actividad).to eq(0)
+      expect(@persona3.actividad).to eq(65.49)
+      expect(@persona4.actividad).to eq(28.52)
+      expect(@persona5.actividad).to eq(264.9)
     end
 
   end
