@@ -44,6 +44,10 @@ class PacienteM < Paciente
     @peso,@talla,@edad,@cintura,@cadera = peso,talla,edad,cintura,cadera
   end
 
+  def addMenu(*labels)
+    @menu = labels
+  end
+
   def imc
     @peso/(@talla * @talla)
   end

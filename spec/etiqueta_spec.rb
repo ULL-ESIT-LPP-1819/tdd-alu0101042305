@@ -4,6 +4,30 @@ RSpec.describe Etiqueta do
     expect(Etiqueta::VERSION).not_to be nil
   end
 
+  describe 'Menú dietético' do
+
+    before :all do
+      @persona1 = PacienteM.new('Ana','mujer','Hospital de Guadalupe',65.3,1.75,32,67.0,70.0)
+      @persona2 = PacienteM.new('Marta','mujer','Hospital de Guadalupe',83.0,1.71,64,80.0,90.0)
+      @persona3 = PacienteM.new('Juan','hombre','Hospital de los Dolores',67.0,1.72,28,70.0,80.0)
+      @persona4 = PacienteM.new('Maria','mujer','Hospital de la Candelaria',45.0,1.39,12,40.0,47.0)
+      @persona5 = PacienteM.new('Carlos','hombre','Hospital del Carmen',70.0,1.69,45,80.0,81.0)
+      @list1 = List.new << @persona1 << @persona2 << @persona3 << @persona4 << @persona5
+
+      @ensalada = Label.new('Ensalada',    40.0,     20.0,     9.8,  69.0,  38.0,    5.0,   0.9)
+      @carne = Label.new('Carne',    30.0,     35.1,     4.6,  47.7,  0.6,     6.3,   1.3)
+    end
+
+    it 'Creando menús' do
+      @persona1.addMenu(@ensalada,@ensalada,@ensalada)
+      @persona2.addMenu(@ensalada,@ensalada,@carne)
+      @persona3.addMenu(@ensalada,@carne,@carne)
+      @persona4.addMenu(@carne,@carne,@carne)
+      @persona5.addMenu(@ensalada,@ensalada,@carne)
+    end
+
+  end
+
   describe Enumerable do
 
     before :all do
