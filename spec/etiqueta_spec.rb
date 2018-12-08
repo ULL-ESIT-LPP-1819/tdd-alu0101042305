@@ -40,7 +40,6 @@ RSpec.describe Etiqueta do
       expect(@persona5.menuKcal).to eq(2581.9)
     end
 
-
     it 'Peso ideal' do
       expect(@persona1.pesoIdeal).to eq(68.75)
       expect(@persona2.pesoIdeal).to eq(65.75)
