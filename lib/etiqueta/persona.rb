@@ -55,7 +55,7 @@ class PacienteM < Paciente
   end
 
   def menuKcal
-    @menu.map {|label| label.kcal}.reduce(:+)
+    (@menu.map {|label| label.kcal}.reduce(:+)).round(2)
   end
 
   def pesoIdeal

@@ -32,6 +32,15 @@ RSpec.describe Etiqueta do
       expect(@persona5.menuOk?).to eq(true)
     end
 
+    it 'Calorias de los menus' do
+      expect(@persona1.menuKcal).to eq(1925.6)
+      expect(@persona2.menuKcal).to eq(1502.5)
+      expect(@persona3.menuKcal).to eq(962.8)
+      expect(@persona4.menuKcal).to eq(1619.1)
+      expect(@persona5.menuKcal).to eq(2581.9)
+    end
+
+
     it 'Peso ideal' do
       expect(@persona1.pesoIdeal).to eq(68.75)
       expect(@persona2.pesoIdeal).to eq(65.75)
