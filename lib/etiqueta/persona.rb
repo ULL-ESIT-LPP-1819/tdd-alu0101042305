@@ -49,7 +49,11 @@ class PacienteM < Paciente
   end
 
   def pesoIdeal
-    (talla*100 - 150) * 0.75 + 50
+    (talla * 100 - 150) * 0.75 + 50
+  end
+
+  def basal
+    (10 * peso + 6.25 * talla - 5 * edad + (sexo == 'mujer'? -161 : 5)).round 2
   end
 
   def imc

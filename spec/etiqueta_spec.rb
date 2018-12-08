@@ -32,6 +32,14 @@ RSpec.describe Etiqueta do
       expect(@persona5.pesoIdeal).to eq(64.25)
     end
 
+    it 'Gasto energético basal' do
+      expect(@persona1.basal).to eq(342.94)
+      expect(@persona2.basal).to eq(359.69)
+      expect(@persona3.basal).to eq(545.75)
+      expect(@persona4.basal).to eq(237.69)
+      expect(@persona5.basal).to eq(490.56)
+    end
+
   end
 
   describe Enumerable do
