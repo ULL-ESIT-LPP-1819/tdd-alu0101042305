@@ -37,7 +37,7 @@ end
 
 class PacienteM < Paciente
 
-  attr_reader :peso,:talla,:edad,:cintura,:cadera
+  attr_reader :peso,:talla,:edad,:cintura,:cadera, :menu
 
   @@factorAct = {'ninguna' => 0, 'ligera' => 0.12, 'moderada' => 0.27, 'intensa' => 0.54}
 
@@ -46,16 +46,12 @@ class PacienteM < Paciente
     @peso,@talla,@edad,@cintura,@cadera,@act = peso,talla,edad,cintura,cadera,act
   end
 
-  def addMenu(*labels)
-    @menu = labels
+  def addMenu(menu)
+    @menu = menu
   end
 
   def menuOk?
-    ((total * 0.9)..(total * 1.1)).include? menuKcal
-  end
-
-  def menuKcal
-    (@menu.map {|label| label.kcal}.reduce(:+)).round(2)
+    ((total * 0.9)..(total * 1.1)).include? @menu.kcal
   end
 
   def pesoIdeal

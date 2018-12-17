@@ -4,6 +4,10 @@ RSpec.describe Etiqueta do
     expect(Etiqueta::VERSION).not_to be nil
   end
 
+  describe Menu do
+
+  end
+
   describe 'Menú dietético' do
 
     before :all do
@@ -12,16 +16,15 @@ RSpec.describe Etiqueta do
       @persona3 = PacienteM.new('Juan','hombre','Hospital de los Dolores',67.0,1.72,28,70.0,80.0,'ligera')
       @persona4 = PacienteM.new('Maria','mujer','Hospital de la Candelaria',45.0,1.39,12,40.0,47.0,'ligera')
       @persona5 = PacienteM.new('Carlos','hombre','Hospital del Carmen',70.0,1.69,45,80.0,81.0,'intensa')
-      @list1 = List.new << @persona1 << @persona2 << @persona3 << @persona4 << @persona5
 
       @ensalada = Label.new('Ensalada',    40.0,     20.0,     9.8,  69.0,  38.0,    5.0,   0.9)
       @carne = Label.new('Carne',    30.0,     35.1,     4.6,  47.7,  0.6,     6.3,   1.3)
 
-      @persona1.addMenu(@ensalada,@ensalada,@ensalada,@ensalada)
-      @persona2.addMenu(@ensalada,@ensalada,@carne)
-      @persona3.addMenu(@ensalada,@ensalada)
-      @persona4.addMenu(@carne,@carne,@carne)
-      @persona5.addMenu(@ensalada,@ensalada,@carne,@carne,@carne)
+      @persona1.addMenu(Menu.new(@ensalada,@ensalada,@ensalada,@ensalada))
+      @persona2.addMenu(Menu.new(@ensalada,@ensalada,@carne))
+      @persona3.addMenu(Menu.new(@ensalada,@ensalada))
+      @persona4.addMenu(Menu.new(@carne,@carne,@carne))
+      @persona5.addMenu(Menu.new(@ensalada,@ensalada,@carne,@carne,@carne))
     end
 
     it 'Comprobando menus' do
@@ -33,11 +36,11 @@ RSpec.describe Etiqueta do
     end
 
     it 'Calorias de los menus' do
-      expect(@persona1.menuKcal).to eq(1925.6)
-      expect(@persona2.menuKcal).to eq(1502.5)
-      expect(@persona3.menuKcal).to eq(962.8)
-      expect(@persona4.menuKcal).to eq(1619.1)
-      expect(@persona5.menuKcal).to eq(2581.9)
+      expect(@persona1.menu.kcal).to eq(1925.6)
+      expect(@persona2.menu.kcal).to eq(1502.5)
+      expect(@persona3.menu.kcal).to eq(962.8)
+      expect(@persona4.menu.kcal).to eq(1619.1)
+      expect(@persona5.menu.kcal).to eq(2581.9)
     end
 
     it 'Peso ideal' do
