@@ -9,7 +9,7 @@ RSpec.describe Etiqueta do
     before :all do
       @ensalada = Label.new('Ensalada',    40.0,     20.0,     9.8,  69.0,  38.0,    5.0,   0.9)
       @carne = Label.new('Carne',    30.0,     35.1,     4.6,  47.7,  0.6,     6.3,   1.3)
-      @pescado = Label.new('Mikado',  25.0,     19.0,     12.0, 68.0,  35.0,    6.8,   0.81)
+      @pescado = Label.new('Pescado',  25.0,     19.0,     12.0, 68.0,  35.0,    6.8,   0.81)
       @menu1 = Menu.new(@ensalada,@carne,@pescado)
       @menu2 = Menu.new(@carne,@carne,@pescado)
       @menu3 = Menu.new(@ensalada,@carne,@carne)
@@ -29,7 +29,7 @@ RSpec.describe Etiqueta do
       @persona6 = PacienteM.new('Julia','mujer','Hospital de Guadalupe',70.0,1.73,22,67.0,70.0,'moderada')
       @persona7 = PacienteM.new('Pepa','mujer','Hospital de Guadalupe',89.0,1.61,64,80.0,90.0,'ninguna')
       @persona8 = PacienteM.new('Marcos','hombre','Hospital de los Dolores',78.0,1.82,23,70.0,80.0,'ligera')
-      @persona9 = PacienteM.new('Ana','mujer','Hospital de la Candelaria',40.0,1.39,9,40.0,47.0,'ligera')
+      @persona9 = PacienteM.new('Teresa','mujer','Hospital de la Candelaria',40.0,1.39,9,40.0,47.0,'ligera')
       @persona10 = PacienteM.new('Jose','hombre','Hospital del Carmen',77.0,1.71,45,80.0,81.0,'intensa')
     end
 
@@ -39,6 +39,11 @@ RSpec.describe Etiqueta do
 
       @list = List.new << @persona1 << @persona2 << @persona3 << @persona4 << @persona5
       @list  << @persona6  << @persona7  << @persona8  << @persona9 << @persona10
+    end
+
+    it 'Usando for' do
+      expect(Menu.for_sort(@array)).to eq([@menu10,@menu9,@menu5,@menu7,@menu8,@menu1,@menu6,@menu2,@menu3,@menu4])
+      expect(@list.for_sort).to eq([@persona9,@persona4,@persona7,@persona2,@persona1,@persona3,@persona6,@persona8,@persona5,@persona10])
     end
 
   end

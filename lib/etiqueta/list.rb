@@ -5,6 +5,10 @@ class List
 
 include Enumerable
 
+  def initialize
+    @sz = 0
+  end
+
   def <<(val)
     node = Node.new(val)
     if(@head == nil)
@@ -15,6 +19,7 @@ include Enumerable
       @tail.next = node
       @tail = node
     end
+    @sz += 1
     self
   end
 
@@ -28,6 +33,7 @@ include Enumerable
       @head.prev = node
       @head = node
     end
+    @sz -= 1
   end
 
   def insert(pos, *arg)
@@ -53,6 +59,7 @@ include Enumerable
         end
       end
     end
+    @sz += 1
   end
 
   def pop(n = 1)
@@ -63,6 +70,7 @@ include Enumerable
       end
     end
     @head = nil if @tail == nil
+    @sz -= 1
   end
 
   def shift(n = 1)
@@ -73,6 +81,7 @@ include Enumerable
       end
     end
     @tail = nil if @head == nil
+    @sz -= 1
   end
 
   def empty?
@@ -93,6 +102,20 @@ include Enumerable
       yield node.value
       node = node.prev
     end
+  end
+
+  def for_sort
+    array = self.to_a
+    for i in (0..array.size-2)
+      for j in (i+1..array.size-1)
+        if(array[i].total > array[j].total)
+           aux = array[i]
+           array[i] = array[j]
+           array[j] = aux
+        end
+      end
+    end
+    array
   end
 
 end
