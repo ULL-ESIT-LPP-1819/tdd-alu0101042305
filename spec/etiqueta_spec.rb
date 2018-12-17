@@ -46,6 +46,11 @@ RSpec.describe Etiqueta do
       expect(@list.for_sort).to eq([@persona9,@persona4,@persona7,@persona2,@persona1,@persona3,@persona6,@persona8,@persona5,@persona10])
     end
 
+    it 'Usando each' do
+      expect(Menu.each_sort(@array)).to eq([@menu10,@menu9,@menu5,@menu7,@menu8,@menu1,@menu6,@menu2,@menu3,@menu4])
+      expect(@list.each_sort).to eq([@persona9,@persona4,@persona7,@persona2,@persona1,@persona3,@persona6,@persona8,@persona5,@persona10])
+    end
+
   end
 
   describe 'Menú dietético' do

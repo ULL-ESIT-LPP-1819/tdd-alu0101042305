@@ -118,4 +118,16 @@ include Enumerable
     array
   end
 
+  def each_sort
+    array = Array.new
+    self.each do |person|
+      sz = array.size
+      array.each_with_index do |person2,i|
+        array.insert(i,person) if person2.total > person.total and sz == array.size
+      end
+      array << person if sz == array.size
+    end
+    array
+  end
+
 end
