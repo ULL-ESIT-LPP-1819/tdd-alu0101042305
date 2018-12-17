@@ -56,6 +56,23 @@ RSpec.describe Etiqueta do
       expect(@list.sort).to eq([@persona9,@persona4,@persona7,@persona2,@persona1,@persona3,@persona6,@persona8,@persona5,@persona10])
     end
 
+    it 'Benchmark' do
+      puts 'Menus'
+      Benchmark.benchmark(CAPTION, 7, FORMAT, ">total:", ">avg:") do |x|
+        tf = x.report("for:")   { Menu.for_sort(@array) }
+        tt = x.report("each:") { Menu.each_sort(@array) }
+        tu = x.report("sort:")  { @array.sort }
+        [tf+tt+tu, (tf+tt+tu)/3]
+      end
+
+      puts 'Personas'
+      Benchmark.benchmark(CAPTION, 7, FORMAT, ">total:", ">avg:") do |x|
+        tf = x.report("for:")   { @list.for_sort }
+        tt = x.report("each:") { @list.each_sort }
+        tu = x.report("sort:")  { @list.sort }
+        [tf+tt+tu, (tf+tt+tu)/3]
+      end
+    end
 
   end
 
