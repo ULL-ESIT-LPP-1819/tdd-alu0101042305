@@ -21,16 +21,16 @@ RSpec.describe Etiqueta do
       @menu9 = Menu.new(@ensalada,@pescado,@pescado)
       @menu10 = Menu.new(@pescado,@pescado,@pescado)
 
-      @persona1 = PacienteM.new('Ana','mujer','Hospital de Guadalupe',65.3,1.75,32,67.0,70.0,'moderada')
-      @persona2 = PacienteM.new('Marta','mujer','Hospital de Guadalupe',83.0,1.71,64,80.0,90.0,'ninguna')
-      @persona3 = PacienteM.new('Juan','hombre','Hospital de los Dolores',67.0,1.72,28,70.0,80.0,'ligera')
-      @persona4 = PacienteM.new('Maria','mujer','Hospital de la Candelaria',45.0,1.39,12,40.0,47.0,'ligera')
-      @persona5 = PacienteM.new('Carlos','hombre','Hospital del Carmen',70.0,1.69,45,80.0,81.0,'intensa')
-      @persona6 = PacienteM.new('Julia','mujer','Hospital de Guadalupe',70.0,1.73,22,67.0,70.0,'moderada')
-      @persona7 = PacienteM.new('Pepa','mujer','Hospital de Guadalupe',89.0,1.61,64,80.0,90.0,'ninguna')
-      @persona8 = PacienteM.new('Marcos','hombre','Hospital de los Dolores',78.0,1.82,23,70.0,80.0,'ligera')
-      @persona9 = PacienteM.new('Teresa','mujer','Hospital de la Candelaria',40.0,1.39,9,40.0,47.0,'ligera')
-      @persona10 = PacienteM.new('Jose','hombre','Hospital del Carmen',77.0,1.71,45,80.0,81.0,'intensa')
+      @persona1 = PacienteT.new('Ana','mujer','Hospital de Guadalupe',65.3,1.75,32,67.0,70.0,'moderada')
+      @persona2 = PacienteT.new('Marta','mujer','Hospital de Guadalupe',83.0,1.71,64,80.0,90.0,'ninguna')
+      @persona3 = PacienteT.new('Juan','hombre','Hospital de los Dolores',67.0,1.72,28,70.0,80.0,'ligera')
+      @persona4 = PacienteT.new('Maria','mujer','Hospital de la Candelaria',45.0,1.39,12,40.0,47.0,'ligera')
+      @persona5 = PacienteT.new('Carlos','hombre','Hospital del Carmen',70.0,1.69,45,80.0,81.0,'intensa')
+      @persona6 = PacienteT.new('Julia','mujer','Hospital de Guadalupe',70.0,1.73,22,67.0,70.0,'moderada')
+      @persona7 = PacienteT.new('Pepa','mujer','Hospital de Guadalupe',89.0,1.61,64,80.0,90.0,'ninguna')
+      @persona8 = PacienteT.new('Marcos','hombre','Hospital de los Dolores',78.0,1.82,23,70.0,80.0,'ligera')
+      @persona9 = PacienteT.new('Teresa','mujer','Hospital de la Candelaria',40.0,1.39,9,40.0,47.0,'ligera')
+      @persona10 = PacienteT.new('Jose','hombre','Hospital del Carmen',77.0,1.71,45,80.0,81.0,'intensa')
     end
 
     before :each do
@@ -50,6 +50,12 @@ RSpec.describe Etiqueta do
       expect(Menu.each_sort(@array)).to eq([@menu10,@menu9,@menu5,@menu7,@menu8,@menu1,@menu6,@menu2,@menu3,@menu4])
       expect(@list.each_sort).to eq([@persona9,@persona4,@persona7,@persona2,@persona1,@persona3,@persona6,@persona8,@persona5,@persona10])
     end
+
+    it 'Usando sort' do
+      expect(@array.sort).to eq([@menu10,@menu9,@menu5,@menu7,@menu8,@menu1,@menu6,@menu2,@menu3,@menu4])
+      expect(@list.sort).to eq([@persona9,@persona4,@persona7,@persona2,@persona1,@persona3,@persona6,@persona8,@persona5,@persona10])
+    end
+
 
   end
 

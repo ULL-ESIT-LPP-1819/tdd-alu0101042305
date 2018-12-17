@@ -89,3 +89,13 @@ class PacienteM < Paciente
   end
 
 end
+
+class PacienteT < PacienteM
+
+  def <=> other
+    raise TypeError, "Se esperaba un objeto Persona" unless other.is_a?Persona
+    return self.total <=> other.total if other.is_a?PacienteT
+    return -1
+  end
+
+end

@@ -108,7 +108,7 @@ include Enumerable
     array = self.to_a
     for i in (0..array.size-2)
       for j in (i+1..array.size-1)
-        if(array[i].total > array[j].total)
+        if(array[i] > array[j])
            aux = array[i]
            array[i] = array[j]
            array[j] = aux
@@ -123,7 +123,7 @@ include Enumerable
     self.each do |person|
       sz = array.size
       array.each_with_index do |person2,i|
-        array.insert(i,person) if person2.total > person.total and sz == array.size
+        array.insert(i,person) if person2 > person and sz == array.size
       end
       array << person if sz == array.size
     end
