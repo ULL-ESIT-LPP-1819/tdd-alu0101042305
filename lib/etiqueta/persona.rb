@@ -97,5 +97,5 @@ class PacienteT < PacienteM
     return self.total <=> other.total if other.is_a?PacienteT
     return -1
   end
-
+#SDGSSD
 end
