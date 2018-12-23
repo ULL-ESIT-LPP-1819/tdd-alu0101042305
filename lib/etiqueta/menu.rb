@@ -1,13 +1,43 @@
-class Menu < Array
+class Menu
 
   include Comparable
 
-  def initialize(*labels)
-    super(labels)
+  def initialize(day,&block)
+    @day = day
+    @almuerzo = []
+    @cena = []
+    @desayuno = []
+    if block_given?
+      instance_eval &block
+    end
+  end
+
+  def titulo(str)
+    @title = str
+  end
+
+  def ingesta(h = {})
+    @min = h[:min] if h[:min]
+    @max = h[:max] if h[:max]
+  end
+
+  def desayuno(h = {})
+    @desayuno << Label.new(h[:descripcion],h[:gramos],h[:grasas],0,h[:carbohidratos],0,h[:proteinas],
+    h[:sal])
+  end
+
+  def almuerzo(h = {})
+    @almuerzo << Label.new(h[:descripcion],h[:gramos],h[:grasas],0,h[:carbohidratos],0,h[:proteinas],
+    h[:sal])
+  end
+
+  def cena(h = {})
+    @cena << Label.new(h[:descripcion],h[:gramos],h[:grasas],0,h[:carbohidratos],0,h[:proteinas],
+    h[:sal])
   end
 
   def kcal
-    (map {|label| label.kcal}.reduce(:+)).round(2)
+    (@desayuno.reduce(:+) + @cena.reduce(:+) + @almuerzo.reduce(:+)).round(2)
   end
 
   def <=> (other)
@@ -15,7 +45,25 @@ class Menu < Array
   end
 
   def to_s
-    map{|label| label.nombre + ' '}.reduce(:+)
+    table = Table.new
+    table << @day
+    table << '' << 'grasas' << 'carbohidratos' << 'proteinas' << 'sal' << 'valor energético'
+    table << 'Desayuno'
+    @desayuno.each do |label|
+      table << label.nombre << label.grasas << label.hc << label.protei << label.sal << label.kcal
+    end
+    table << ''
+    table << 'Almuerzo'
+    @almuerzo.each do |label|
+      table << label.nombre << label.grasas << label.hc << label.protei << label.sal << label.kcal
+    end
+    table << ''
+    table << 'Cena'
+    @cena.each do |label|
+      table << label.nombre << label.grasas << label.hc << label.protei << label.sal << label.kcal
+    end
+    table << 'Valor energético total' << self.kcal
+    table.to_s
   end
 
   def self.for_sort(menus)

@@ -20,6 +20,14 @@ class Label
     grasas * 9 + hc * 4 + protei * 4 + sal * 6
   end
 
+  def + (label)
+    self.kcal + label.kcal
+  end
+
+  def coerce(arg)
+    [arg,self.kcal]
+  end
+
   def toX(method, arg = nil)
     if arg == nil
       ((send(method)*@porcion)/100).round(2)

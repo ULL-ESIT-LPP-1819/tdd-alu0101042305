@@ -3,6 +3,7 @@ require "etiqueta/label"
 require "etiqueta/list"
 require "etiqueta/persona"
 require "etiqueta/menu"
+require 'etiqueta/table'
 require 'benchmark'
 include Benchmark
 

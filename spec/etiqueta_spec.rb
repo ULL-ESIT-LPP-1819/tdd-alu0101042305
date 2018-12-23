@@ -7,6 +7,58 @@ RSpec.describe Etiqueta do
   describe Menu do
 
     before :all do
+      @menu = Menu.new("Lunes") do
+        titulo "Bajo en calorı́as"
+        ingesta :min => 30, :max => 35
+
+        desayuno :descripcion => "Pan de trigo integral",
+          :gramos => 100,
+          :grasas => 3.3,
+          :carbohidratos => 54.0,
+          :proteinas => 11.0,
+          :sal => 0.06
+
+        desayuno :descripcion => "Actimel",
+          :gramos => 100,
+          :grasas => 3.4,
+          :carbohidratos => 4.4,
+          :proteinas => 3.6,
+          :sal => 0.05
+
+        almuerzo :descripcion => "Arroz",
+          :gramos => 100,
+          :grasas => 0.9,
+          :carbohidratos => 81.6,
+          :proteinas => 6.67,
+          :sal => 0.04
+
+        almuerzo :descripcion => "Lentejas",
+          :gramos => 100,
+          :grasas => 0.4,
+          :carbohidratos => 20.0,
+          :proteinas => 9.0,
+          :sal => 8.0
+
+        cena :descripcion => "Leche entera hacendado",
+          :gramos => 100,
+          :grasas => 3.6,
+          :carbohidratos => 4.6,
+          :proteinas => 3.1,
+          :sal => 0.13
+      end
+    end
+
+    it 'Metodo to_s' do
+      puts @menu
+      expect(@menu.to_s.class).to eq(String)
+    end
+
+  end
+
+=begin
+  describe Menu do
+
+    before :all do
       @ensalada = Label.new('Ensalada',    40.0,     20.0,     9.8,  69.0,  38.0,    5.0,   0.9)
       @carne = Label.new('Carne',    30.0,     35.1,     4.6,  47.7,  0.6,     6.3,   1.3)
       @pescado = Label.new('Pescado',  25.0,     19.0,     12.0, 68.0,  35.0,    6.8,   0.81)
@@ -152,6 +204,8 @@ RSpec.describe Etiqueta do
     end
 
   end
+
+=end
 
   describe Enumerable do
 
