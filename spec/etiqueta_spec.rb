@@ -49,8 +49,21 @@ RSpec.describe Etiqueta do
     end
 
     it 'Metodo to_s' do
-      puts @menu
-      expect(@menu.to_s.class).to eq(String)
+      table = Table.new
+      table << 'Lunes'
+      table << '' << 'grasas' << 'carbohidratos' << 'proteinas' << 'sal' << 'valor energético'
+      table << 'Desayuno'
+      table << 'Pan de trigo integral' << 3.3 << 54.0 << 11.0 << 0.06 << 290.06
+      table << 'Actimel' << 3.4 << 4.4 << 3.6 << 0.05 << 62.9
+      table << ''
+      table << 'Almuerzo'
+      table << 'Arroz' << 0.9 << 81.6 << 6.67 << 0.04 << 361.42
+      table << 'Lentejas' << 0.4 << 20.0 << 9.0 << 8.0 << 167.6
+      table << ''
+      table << 'Cena'
+      table << 'Leche entera hacendado' << 3.6 << 4.6 << 3.1 << 0.13 << 63.98
+      table << 'Valor energético total' << 945.96
+      expect(@menu.to_s).to eq(table.to_s)
     end
 
   end
